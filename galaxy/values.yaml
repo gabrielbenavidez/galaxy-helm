@@ -122,7 +122,8 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /galaxy
   hosts:
-    - ~
+    - infotechsoft.com
+    #- ~
     # - host: ~
     #   paths: ["/"]
   tls: []
