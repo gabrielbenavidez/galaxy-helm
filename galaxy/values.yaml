@@ -6,7 +6,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 image:
-  repository: galaxy/galaxy-k8s
+  repository: its/galaxy-k8s
   tag: 19.09
   pullPolicy: IfNotPresent
 
