@@ -4,7 +4,7 @@
 
 image:
   repository: galaxy/galaxy-k8s
-  tag: 20.01
+  tag: 19.09
   pullPolicy: IfNotPresent
 
 nameOverride: ""
