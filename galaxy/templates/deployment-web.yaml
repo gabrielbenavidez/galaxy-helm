@@ -68,6 +68,9 @@ spec:
             - name: galaxy-http
               containerPort: 8080
               protocol: TCP
+            - name: galaxy-ftp
+              containerPort: 21
+              protocol: TCP
           env:
 {{- if .Values.extraEnv }}
 {{ tpl (toYaml .Values.extraEnv) . | indent 12 }}
@@ -127,6 +130,10 @@ spec:
               mountPath: {{ .Values.cvmfs.main.mountPath }}
             - name: cvmfs-gxy-data
               mountPath: {{ .Values.cvmfs.data.mountPath }}
+            - name: galaxy-server
+              mountPath: /galaxy/server
+            - name: galaxy-upload-dir
+              mountPath: /galaxy/server/database/files
             {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

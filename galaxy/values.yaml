@@ -208,6 +208,8 @@ configs:
       enable_data_manager_user_view: true
       tool_data_path: "{{.Values.persistence.mountPath}}/tool-data"
       conda_auto_init: false
+      user_library_import_dir: /galaxy/server/database/files/
+      ftp_upload_dir: /galaxy/server/database/files/
   container_resolvers_conf.xml: |
     <containers_resolvers>
       <explicit />
