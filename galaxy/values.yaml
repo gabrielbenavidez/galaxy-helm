@@ -164,11 +164,20 @@ configs:
               <param id="docker_default_container_id">{{ .Values.image.repository }}:{{ .Values.image.tag }}</param>
               <param id="docker_enabled">true</param>
             </destination>
+            <destination id="qiime2" runner="dynamic">
+              <param id="type">python</param>
+              <param id="function">k8s_container_mapper</param>
+              <param id="docker_default_container_id">qiime2/core</param>
+              <param id="docker_enabled">true</param>
+            </destination>
         </destinations>
         <limits>
             <limit type="registered_user_concurrent_jobs">5</limit>
             <limit type="anonymous_user_concurrent_jobs">2</limit>
         </limits>
+          <tools>
+            <tool id="qiime_tools_import" destination="qiime2" />                    
+          </tools>
     </job_conf>
   uwsgi.yml: |
     uwsgi:
@@ -210,6 +219,7 @@ configs:
       conda_auto_init: false
       user_library_import_dir: /galaxy/server/database/files/
       ftp_upload_dir: /galaxy/server/database/files/
+      admin_users: gabriel@infotechsoft.com
   container_resolvers_conf.xml: |
     <containers_resolvers>
       <explicit />
