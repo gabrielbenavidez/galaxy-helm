@@ -154,6 +154,7 @@ configs:
               <param id="k8s_supplemental_group_id">101</param>
               <param id="k8s_pull_policy">IfNotPresent</param>
               <param id="k8s_cleanup_job">always</param>
+              <param id="k8s_pod_retries">20</param>
             </plugin>
         </plugins>
         <destinations default="dynamic-k8s-dispatcher">
@@ -165,19 +166,26 @@ configs:
               <param id="docker_enabled">true</param>
             </destination>
             <destination id="qiime2" runner="dynamic">
+              <param id="docker_enabled">true</param>
               <param id="type">python</param>
               <param id="function">k8s_container_mapper</param>
               <param id="docker_default_container_id">qiime2/core</param>
               <param id="docker_enabled">true</param>
             </destination>
+            <destination id="its-tools" runner="dynamic">
+              <param id="type">python</param>
+              <param id="function">k8s_container_mapper</param>
+              <param id="docker_default_container_id">infotechsoft/tools</param>
+              <param id="docker_enabled">true</param>
+            </destination>
         </destinations>
+        <tools>
+            <tool id="qiime_tools_import" destination="qiime2" />
+        </tools>
         <limits>
             <limit type="registered_user_concurrent_jobs">5</limit>
             <limit type="anonymous_user_concurrent_jobs">2</limit>
         </limits>
-          <tools>
-            <tool id="qiime_tools_import" destination="qiime2" />                    
-          </tools>
     </job_conf>
   uwsgi.yml: |
     uwsgi:
