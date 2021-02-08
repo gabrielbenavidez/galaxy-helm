@@ -130,10 +130,6 @@ spec:
               mountPath: {{ .Values.cvmfs.main.mountPath }}
             - name: cvmfs-gxy-data
               mountPath: {{ .Values.cvmfs.data.mountPath }}
-            - name: galaxy-server
-              mountPath: /galaxy/server
-            - name: galaxy-upload-dir
-              mountPath: /galaxy/server/database/files
             {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
