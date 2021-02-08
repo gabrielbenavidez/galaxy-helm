@@ -180,6 +180,8 @@ configs:
         </destinations>
         <tools>
             <tool id="qiime_tools_import" destination="qiime2" />
+            <tool id="qiime_feature-classifier_extract-reads" destination="qiime2" />
+            <tool id="qiime_feature-classifier_fit-classifier-naive-bayes" destination="qiime2" />
         </tools>
         <limits>
             <limit type="registered_user_concurrent_jobs">5</limit>
