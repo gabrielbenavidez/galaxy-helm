@@ -6,7 +6,7 @@ spec:
   capacity:
     storage: 10Gi
   accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: "/tmp/k8s/volumes/galaxy_data"
